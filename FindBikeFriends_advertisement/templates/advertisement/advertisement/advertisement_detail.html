@@ -1,9 +1,28 @@
 {% extends "advertisement/base.html" %}
 {% load static %}
-{% block headerTitle %}Reklamlar{% endblock headerTitle %}
+{% block headerTitle %} {{advertisement.name}} - Reklamlar {% endblock headerTitle %}
 
-{% block pageTitle %}Reklamlar{% endblock pageTitle %}
+{% block pageTitle %} {{advertisement.name}} - Reklamlar {% endblock pageTitle %}
 
 {% block content %}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse in hendrerit mi. Praesent varius tempor augue, sed dignissim ipsum consequat ut. Morbi ornare eros aliquet nibh lobortis, quis sodales sem pulvinar. Quisque fermentum nibh vitae tincidunt hendrerit. Mauris facilisis sodales enim at eleifend. Mauris non tortor enim. Integer ut diam bibendum, mattis orci et, euismod lacus. Sed mollis elit eget dui mattis vehicula. Ut imperdiet imperdiet elit sit amet commodo. Suspendisse laoreet vulputate purus ac tristique. Quisque ornare nibh lobortis fermentum aliquam. In ut neque dapibus, pharetra nisi in, condimentum felis.
+
+{{advertisement.id}}
+<hr>
+{{advertisement.name}}
+<hr>
+{{advertisement.created}}
+<hr>
+{{advertisement.id}}
+<hr>
+{{advertisement.description}}
+<hr>
+{{advertisement.start_date}} <br>
+
+{{advertisement.end_date}}
+<hr>
+{{advertisement.price}}
+<hr>
+{{advertisement.thumbnail}}
+<hr>
+
 {% endblock content %}

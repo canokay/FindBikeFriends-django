@@ -35,7 +35,10 @@ def CreateAdvertisementView(request):
 
 @login_required
 def AdvertisementListView(request):
-    return render(request, 'advertisement/advertisement/advertisement_list.html')
+    context = {
+        "advertisement": Advertisement.objects.filter(owner=request.user)
+    }
+    return render(request, 'advertisement/advertisement/advertisement_list.html',context)
 
 
 
