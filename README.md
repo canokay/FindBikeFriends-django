@@ -1,1 +1,1 @@
-# FindBikeFriends-django
+# FindBikeFriends Django Backend
