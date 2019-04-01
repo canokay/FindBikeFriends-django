@@ -3,13 +3,8 @@ from django.db import models
 from django.db.models import Model,ForeignKey,CharField,DateTimeField,FloatField,TextField,ManyToManyField,DecimalField,IntegerField,BooleanField,ImageField
 from django.contrib.auth.models import AbstractUser
 
-USERSTATUS=(
-    ('User','Kullanici'),
-    ('Company','Sirket'),
-)
 
 class User(AbstractUser):
-    user_status = CharField(max_length=15, verbose_name="Kullanıcı Durumu",choices=USERSTATUS)
     profile_photo = ImageField(verbose_name='Profil Fotoğrafı', upload_to='images/user/profile/', blank=True, null=True)
     class Meta:
         verbose_name = 'Kullanıcı'

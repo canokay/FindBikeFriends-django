@@ -1,0 +1,42 @@
+{% load static %}
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>Şirket Paneli </h3>
+        <p style="color:#ffffff">{{request.user.username}} Kullanıcısı</p>
+    </div>
+    <ul class="list-unstyled components">
+        <li class="active">
+            <a href="#">Başlangıç</a>
+        </li>
+        <li>
+            <a href="#messageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Mesajlar</a>
+            <ul class="collapse list-unstyled" id="messageSubmenu">
+                <li class="active">
+                    <a href="#">Gelen Mesajlar</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#meatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reklamlar</a>
+            <ul class="collapse list-unstyled " id="meatSubmenu">
+                <li class="">
+                    <a href="#">Reklam Ekle</a>
+                </li>
+                <li class="">
+                    <a href="#">Reklam Listele</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ayarlar</a>
+            <ul class="collapse list-unstyled" id="settingsSubmenu">
+                <li>
+                    <a href="#">Şirket Ayarları</a>
+                </li>
+            </ul>
+      </li>
+      <li>
+          <a href="{% url 'FindBikeFriends_advertisement:logout' %}">Çıkış Yap</a>
+      </li>
+    </ul>
+</nav>
