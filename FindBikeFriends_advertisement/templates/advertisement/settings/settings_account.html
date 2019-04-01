@@ -1,0 +1,129 @@
+{% extends "advertisement/base.html" %}
+{% load static %}
+{% block headerTitle %}Şirket Ayarları{% endblock headerTitle %}
+
+{% block pageTitle %}Şirket Ayarları{% endblock pageTitle %}
+
+{% block content %}
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+              <div class="base-box-title">
+                  Yetkili Bilgileri
+              </div>
+              <div class="line" style="height:1px; width:100%; background-color: #ecf0f1;"></div>
+              <div class="base-box-content">
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Ad Soyad:</label>
+                      <div class="col-sm-3">
+{{ form.executive_namesurname }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">TCNO:</label>
+                      <div class="col-sm-3">
+{{ form.executive_identity_number }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">GSM No:</label>
+                      <div class="col-sm-3">
+{{ form.executive_phone }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Yetkili E Posta Adresi:</label>
+                      <div class="col-sm-3">
+{{ form.executive_email }}
+                      </div>
+                  </div>
+              </div>
+              <div class="line" style="height:1px; width:100%; background-color: #ecf0f1;"></div>
+              <div class="base-box-title">
+                  Restoran Bilgileri
+              </div>
+              <div class="line" style="height:1px; width:100%; background-color: #ecf0f1;"></div>
+              <div class="base-box-content">
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Restoran Adı:</label>
+                      <div class="col-sm-3">
+{{ user.first_name }} {{ user.last_name }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Restoran Sabit Telefon:</label>
+                      <div class="col-sm-3">
+{{ user.phone }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Restoran Mail:</label>
+                      <div class="col-sm-3">
+{{ user.email }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Adres:</label>
+                      <div class="col-sm-3">
+                          {{ form.address.open_address }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Şehir:</label>
+                      <div class="col-sm-3">
+{{ form.city }}
+                      </div>
+                  </div>
+              </div>
+              <div class="line" style="height:1px; width:100%; background-color: #ecf0f1;"></div>
+              <div class="base-box-title">
+                  Restoran Mali Bilgileri
+              </div>
+              <div class="line" style="height:1px; width:100%; background-color: #ecf0f1;"></div>
+              <div class="base-box-content">
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Firma Ticari Ünvanı:</label>
+                      <div class="col-sm-3">
+{{ form.legal_company_title }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">IBAN:</label>
+                      <div class="col-sm-3">
+{{ form.iban }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Vergi Numara:</label>
+                      <div class="col-sm-3">
+{{ form.tax_number }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Mersis Numarası:</label>
+                      <div class="col-sm-3">
+{{ form.mersis_no }}
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label left_form_text">Kep Adresi:</label>
+                      <div class="col-sm-3">
+{{ form.kep_address }}
+                      </div>
+                  </div>
+              </div>
+
+
+
+  <div class="col-md-12">
+      <button type="submit" class="btn btn-warning" style="margin-bottom:8px;">
+          Değişiklikleri Kaydet
+      </button>
+      <button type="reset" class="btn btn-secondary m-btn m-btn--custom" style="margin-bottom:8px;">
+          İptal
+      </button>
+  </div>
+</form>
+
+
+{% endblock content %}
