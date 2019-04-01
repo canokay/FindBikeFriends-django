@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'FindBikeFriends_core'
+    'FindBikeFriends_core',
+    'FindBikeFriends_advertisement',
+    'FindBikeFriends_rider',
+    'FindBikeFriends_web',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,11 @@ ROOT_URLCONF = 'FindBikeFriends.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'FindBikeFriends_advertisement', 'templates'),
+            os.path.join(BASE_DIR, 'FindBikeFriends_rider', 'templates'),
+            os.path.join(BASE_DIR, 'FindBikeFriends_web', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,6 +126,11 @@ MEDIA_URL = "/media/"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [STATIC_DIR, ]
+PROJECT_DIR = os.path.dirname(__file__)
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'FindBikeFriends_core.User'
