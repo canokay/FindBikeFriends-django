@@ -12,8 +12,8 @@ class User(AbstractUser):
 
 
 class Followers(Model):
-    follower = ForeignKey('FindBikeFriends_core.User', null=False, related_name='destination', on_delete=models.CASCADE)
-    following = ForeignKey('FindBikeFriends_core.User', null=False, related_name='source', on_delete=models.CASCADE)
+    following = ForeignKey('FindBikeFriends_core.User', null=False, related_name='source', on_delete=models.CASCADE, verbose_name='Takip Eden')
+    follower = ForeignKey('FindBikeFriends_core.User', null=False, related_name='destination', on_delete=models.CASCADE, verbose_name='Takip Edilen')
     created_at = DateTimeField(auto_now_add=True, editable=False, blank=True, null=False)
 
     class Meta:
@@ -34,16 +34,29 @@ class EventTag(Model):
         return self.tag
 
 
+class EventType(Model):
+    tag = TextField(verbose_name='Tag')
+
+    class Meta:
+        ordering = ('-id',)
+        verbose_name = 'Etkinlik Tipi'
+        verbose_name_plural = 'Etkinlik Tipleri'
+
+    def __str__(self):
+        return self.tag
+
+
 class Event(Model):
     name = CharField(max_length=255, verbose_name='Etkinlik Adı')
     description = TextField(max_length=1000, verbose_name='Açıklama')
     created_at = DateTimeField(auto_now_add=True, editable=False, blank=True, null=False,verbose_name='Oluşturma Tarihi')
     start_date = DateTimeField(verbose_name='Etkinlik Tarihi')
-    tag = ForeignKey('FindBikeFriends_core.EventTag', blank=True, null=True, verbose_name='Etkinlik Tagi', on_delete=models.CASCADE)
-    owner = ForeignKey('FindBikeFriends_core.User', related_name='owner', verbose_name='Oluşturan Kişi', on_delete=models.CASCADE)
+    type = ForeignKey('FindBikeFriends_core.EventType', blank=True, null=True, verbose_name='Etkinlik Tipi', on_delete=models.CASCADE)
+    tag = ManyToManyField('FindBikeFriends_core.EventTag', blank=True, null=True, verbose_name='Etkinlik Tagları')
+    owner = ForeignKey('FindBikeFriends_core.User', related_name='owner',blank=False, null=False, verbose_name='Oluşturan Kişi', on_delete=models.CASCADE)
     lat = DecimalField(max_digits=9, decimal_places=6, null=True, blank=True, verbose_name='Etkinlik X Koordinatı')
     long = DecimalField(max_digits=9, decimal_places=6, null=True, blank=True, verbose_name='Etkinlik Y Koordinatı')
-    guests = ManyToManyField('FindBikeFriends_core.User', blank=True, verbose_name='Misafirler')
+    guests = ManyToManyField('FindBikeFriends_core.User', blank=True, verbose_name='Gelen Kullanıcılar')
 
     class Meta:
         ordering = ('-id',)
@@ -137,15 +150,14 @@ class Advertisement(Model):
     owner = ForeignKey('FindBikeFriends_core.Company', related_name='advertisement_owner', verbose_name='Reklamveren Firma', on_delete=models.CASCADE)
     thumbnail = ImageField(verbose_name='Reklam Thumbnail', upload_to='images/advertisement/')
 
-
     class Meta:
         verbose_name = 'Reklam'
         verbose_name_plural = 'Reklamlar'
 
 
 class AdvertisementImage(Model):
-    image = ImageField(verbose_name='İsim', upload_to='images/advertisement/')
-    advertisement = ForeignKey('FindBikeFriends_core.Advertisement', verbose_name='Reklam', null=True, blank=True, on_delete=models.CASCADE)
+    advertisement = ForeignKey('FindBikeFriends_core.Advertisement', verbose_name='Reklamveren', null=True, blank=True, on_delete=models.CASCADE)
+    image = ImageField(verbose_name='Reklam Resimi', upload_to='images/advertisement/')
 
 
     class Meta:
