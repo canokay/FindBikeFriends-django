@@ -26,6 +26,8 @@ from FindBikeFriends import settings
 from FindBikeFriends_core.models import User, Followers, EventTag, Event, City, CompanyAddress, CompanyFeature, Company, Advertisement, AdvertisementImage
 
 from FindBikeFriends_app.serializers.eventlist import EventListSerializer
+from FindBikeFriends_app.serializers.eventdetail import EventDetailSerializer
+
 
 
 
@@ -35,3 +37,16 @@ class EventListView(ListAPIView):
     def get_queryset(self):
         type = self.request.GET.get('type', None)
         return Event.objects.all()
+
+class EventDetailView(APIView):
+    serializer_class = EventDetailSerializer
+
+    def get_event(self, id):
+        try:
+            return Event.objects.get(id=id)
+        except Event.DoesNotExist:
+            raise Http404
+
+    def get_queryset(self, id):
+        type = self.request.GET.get('type', None)
+        return Event.objects.get(id=id)

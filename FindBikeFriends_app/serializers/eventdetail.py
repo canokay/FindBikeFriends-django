@@ -5,20 +5,10 @@ from rest_framework.serializers import ModelSerializer
 
 from FindBikeFriends_core.models import Event,EventType
 
-
-class EventTypeSerializer(ModelSerializer):
-    class Meta:
-        model = EventType
-        fields = [
-            'type',
-        ]
-
-class EventListSerializer(ModelSerializer):
-    type=EventTypeSerializer()
+class EventDetailSerializer(ModelSerializer):
     class Meta:
         model = Event
         fields = [
-            'id',
             'name',
             'description',
             'start_date',
