@@ -8,7 +8,7 @@ class User(AbstractUser):
     profile_photo = ImageField(verbose_name='Profil Fotoğrafı', upload_to='images/user/profile/', blank=True, null=True)
     class Meta:
         verbose_name = 'Kullanıcı'
-        verbose_name_plural = 'Tüm Kullanıcılar'
+        verbose_name_plural = 'Kullanıcılar'
 
 
 class Followers(Model):
@@ -23,7 +23,7 @@ class Followers(Model):
 
 
 class EventTag(Model):
-    tag = TextField(verbose_name='Tag')
+    tag = CharField(max_length=255, verbose_name='Etkinlik Tagi')
 
     class Meta:
         ordering = ('-id',)
@@ -35,7 +35,7 @@ class EventTag(Model):
 
 
 class EventType(Model):
-    tag = TextField(verbose_name='Tag')
+    type = CharField(max_length=255, verbose_name='Etkinlik Tipi')
 
     class Meta:
         ordering = ('-id',)
@@ -43,7 +43,7 @@ class EventType(Model):
         verbose_name_plural = 'Etkinlik Tipleri'
 
     def __str__(self):
-        return self.tag
+        return self.type
 
 
 class Event(Model):
