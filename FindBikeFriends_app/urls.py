@@ -4,7 +4,7 @@ from django.urls import include
 from rest_framework import routers
 
 from FindBikeFriends import settings
-from FindBikeFriends_app.views import EventListView
+from FindBikeFriends_app.api import EventListView
 
 app_name = 'FindBikeFriends_app'
 router = routers.DefaultRouter()
