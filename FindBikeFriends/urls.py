@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^',  include("FindBikeFriends_web.urls")),
     url(r'^bisikletli/', include("FindBikeFriends_rider.urls")),
     url(r'^reklamveren/', include("FindBikeFriends_advertisement.urls")),
+    url(r'^api/', include("FindBikeFriends_app.urls")),
 ]
