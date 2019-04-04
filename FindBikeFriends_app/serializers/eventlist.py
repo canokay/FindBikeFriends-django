@@ -8,4 +8,4 @@ from FindBikeFriends_core.models import Event
 class EventListSerializer(ModelSerializer):
     class Meta:
         model = Event
-        fields = '__all__'
+        fields = ['name','description','start_date',]
