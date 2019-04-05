@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import Form, ModelForm, CharField, TextInput, PasswordInput, ChoiceField, Select, NumberInput,SelectMultiple,DateTimeInput
-from FindBikeFriends_core.models import Company,Advertisement,AdvertisementImage
+from FindBikeFriends_app.models import Company,Advertisement,AdvertisementImage
 
 
 class LoginForm(Form):

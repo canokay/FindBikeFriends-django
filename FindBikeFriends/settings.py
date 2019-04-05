@@ -141,4 +141,4 @@ REST_FRAMEWORK = {
 }
 
 
-AUTH_USER_MODEL = 'FindBikeFriends_core.User'
+AUTH_USER_MODEL = 'FindBikeFriends_app.User'

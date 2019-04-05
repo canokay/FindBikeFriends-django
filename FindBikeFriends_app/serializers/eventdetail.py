@@ -3,7 +3,7 @@ from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 
-from FindBikeFriends_core.models import Event,EventType
+from FindBikeFriends_app.models import Event,EventType
 
 class EventDetailSerializer(ModelSerializer):
     class Meta:

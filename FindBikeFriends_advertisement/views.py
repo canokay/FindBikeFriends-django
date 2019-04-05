@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
-from FindBikeFriends_core.models import Company, Advertisement
+from FindBikeFriends_app.models import Company, Advertisement
 from FindBikeFriends_advertisement.forms import CompanyForm, AdvertisementForm, AdvertisementImageForm
 
 @login_required
