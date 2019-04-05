@@ -12,6 +12,6 @@ router = routers.DefaultRouter()
 urlpatterns = \
     [
         url(r'^', include(router.urls)),
-        url(r'^events/$', EventListView.as_view()),
+        url(r'^event/$', EventListView.as_view()),
         url(r'^event/(?P<id>\d+)/$', EventDetailView.as_view()),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

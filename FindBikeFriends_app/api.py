@@ -44,5 +44,5 @@ class EventDetailView(ListAPIView):
     serializer_class = EventDetailSerializer
 
     def get_queryset(self):
-        user = self.request.user
-        return Event.objects.get(id=id)
+        id = self.kwargs['id']
+        return Event.objects.filter(id=id)
