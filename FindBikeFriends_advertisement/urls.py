@@ -1,8 +1,5 @@
 from django.conf.urls import url
 
-from django.urls import path,include
-from django.conf.urls import url
-
 from FindBikeFriends_advertisement.views import IndexView,LogoutView,CreateAdvertisementView,AdvertisementListView,AdvertisementDetailView,SettingsCompanyView
 
 app_name = 'FindBikeFriends_advertisement'

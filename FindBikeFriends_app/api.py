@@ -38,15 +38,11 @@ class EventListView(ListAPIView):
         type = self.request.GET.get('type', None)
         return Event.objects.all()
 
-class EventDetailView(APIView):
+
+
+class EventDetailView(ListAPIView):
     serializer_class = EventDetailSerializer
 
-    def get_event(self, id):
-        try:
-            return Event.objects.get(id=id)
-        except Event.DoesNotExist:
-            raise Http404
-
-    def get_queryset(self, id):
-        type = self.request.GET.get('type', None)
+    def get_queryset(self):
+        user = self.request.user
         return Event.objects.get(id=id)

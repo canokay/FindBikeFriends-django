@@ -1,8 +1,5 @@
 from django.conf.urls import url
 
-from django.urls import path,include
-from django.conf.urls import url
-
 from FindBikeFriends_web.views import IndexView, LoginView, RegisterView
 
 app_name = 'FindBikeFriends_web'
