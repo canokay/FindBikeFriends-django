@@ -35,23 +35,12 @@ class AdvertisementImageForm(ModelForm):
 class CompanyForm(ModelForm):
     class Meta:
         model = Company
-        fields = ( 'first_name', 'last_name','address', 'identity_number', 'executive_namesurname', 'executive_identity_number', 'executive_email', 'executive_phone',
-        'mersis_no', 'kep_address', 'tax_office', 'tax_number', 'legal_company_title','iban','link_facebook','link_instagram','link_twitter','link_web','features')
+        fields = ( 'first_name', 'last_name','address','link_facebook','link_instagram','link_twitter','link_web','features')
 
         widgets = {
             'first_name': TextInput(attrs={'class': 'form-control'}),
             'last_name': TextInput(attrs={'class': 'form-control'}),
             'address': TextInput(attrs={'class': 'form-control'}),
-            'identity_number': TextInput(attrs={'class': 'form-control'}),
-            'executive_namesurname': TextInput(attrs={'class': 'form-control'}),
-            'executive_identity_number': TextInput(attrs={'class': 'form-control'}),
-            'executive_email': TextInput(attrs={'class': 'form-control'}),
-            'executive_phone': Select(attrs={'class': 'form-control'}),
-            'mersis_no': TextInput(attrs={'class': 'form-control'}),
-            'kep_address': TextInput(attrs={'class': 'form-control'}),
-            'tax_office': TextInput(attrs={'class': 'form-control'}),
-            'legal_company_title': TextInput(attrs={'class': 'form-control'}),
-            'iban': TextInput(attrs={'class': 'form-control'}),
             'link_facebook': TextInput(attrs={'class': 'form-control'}),
             'link_instagram': TextInput(attrs={'class': 'form-control'}),
             'link_twitter': TextInput(attrs={'class': 'form-control'}),

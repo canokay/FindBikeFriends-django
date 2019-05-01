@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
-    'FindBikeFriends_core',
+    'FindBikeFriends_app',
     'FindBikeFriends_advertisement',
     'FindBikeFriends_rider',
     'FindBikeFriends_web',

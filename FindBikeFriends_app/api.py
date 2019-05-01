@@ -23,7 +23,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from FindBikeFriends import settings
-from FindBikeFriends_app.models import User, Followers, EventTag, Event, City, CompanyAddress, CompanyFeature, Company, Advertisement, AdvertisementImage
+from FindBikeFriends_app.models import User, Followers,  Event, City, CompanyAddress, CompanyFeature, Company, Advertisement, AdvertisementImage
 
 from FindBikeFriends_app.serializers.eventlist import EventListSerializer
 from FindBikeFriends_app.serializers.eventdetail import EventDetailSerializer
