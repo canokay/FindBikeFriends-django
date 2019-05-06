@@ -1,38 +1,62 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>{% block title %}{% endblock %}</title>
-  <!-- Bootstrap core CSS -->
-  <link href="{% static 'web/css/bootstrap.min.css' %}" rel="stylesheet">
-  <!-- Custom fonts for this template -->
-  <link href="{% static 'web/css/fontawesome-all.min.css' %}" rel="stylesheet">
-  <link href="{% static 'web/css/simple-line-icons.css' %}" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-  <!-- Custom styles for this template -->
-  <link href="{% static 'web/css/landing-page.min.css' %}" rel="stylesheet">
-  {% block header_static %}
 
-  {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'web/img/core-img/favicon.png' %}">
+
+    <!-- Stylesheet -->
+    <link href="{% static 'web/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/animate.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/default-assets/classy-nav.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/owl.carousel.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/nice-select.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/jquery-ui.min.css' %}" rel="stylesheet" type="text/css">
+    {% block header_static %}
+
+    {% endblock %}
 </head>
+
 <body>
-  <!-- Navigation -->
-    {% include 'web/components/header.html' %}
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- **** Header Area Start **** -->
+      {% include 'web/components/header.html' %}
+    <!-- **** Header Area End **** -->
     {% block content %}
 
     {% endblock %}
-  <!-- Footer -->
-  {% include 'web/components/footer.html' %}
-  <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'web/js/jquery.min.js' %}"></script>
-  <script src="{% static 'web/js/bootstrap.bundle.min.js' %}"></script>
-{% block page_static %}
 
-{% endblock %}
+
+
+    <!-- **** Footer Area Start **** -->
+    {% include 'web/components/footer.html' %}
+    <!-- **** Footer Area End **** -->
+
+    <!-- **** All JS Files ***** -->
+    <!-- jQuery 2.2.4 -->
+    <script src="{% static 'web/js/jquery.min.js' %}"></script>
+    <script src="{% static 'web/js/popper.min.js' %}"></script>
+    <script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'web/js/rehomes.bundle.js' %}"></script>
+    <script src="{% static 'web/js/default-assets/active.js' %}"></script>
+
+
 </body>
 
 </html>

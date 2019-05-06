@@ -1,11 +1,68 @@
-<nav class="navbar navbar-light bg-light static-top">
-  <div class="container">
-  <div class="text-left">
-    <a class="navbar-brand" href="/">Find Bike Friends</a>
-  </div>
-    <div class="text-right">
-        <a class="btn btn-primary text-right" href="/login">Giriş Yap</a>
-        <a class="btn btn-outline-warning" href="/register">Kaydol</a>
+{% load static %}
+<!-- **** Header Area Start **** -->
+<header class="header-area">
+
+    <!-- Main Header Start -->
+    <div class="main-header-area animated">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Classy Menu -->
+                <nav class="classy-navbar justify-content-between" id="rehomesNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="./index.html"><img src="{% static 'web/img/core-img/logo.png' %}" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+                        <!-- Menu Close Button -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li class="active"><a href="./index.html">Home</a></li>
+                                <li><a href="#">Pages</a>
+                                    <ul class="dropdown">
+                                        <li class="active"><a href="./index.html">- Home</a></li>
+                                        <li><a href="./about.html">- About</a></li>
+                                        <li><a href="./agent.html">- Agent</a></li>
+                                        <li><a href="./rent.html">- Rent</a></li>
+                                        <li><a href="./properties-details.html">- Property Details</a></li>
+                                        <li><a href="./blog.html">- Blog</a></li>
+                                        <li><a href="./single-blog.html">- Single Blog</a></li>
+                                        <li><a href="./contact.html">- Contact</a></li>
+                                        <li><a href="#">- Dropdown</a>
+                                            <ul class="dropdown">
+                                                <li><a href="#">- Dropdown Item</a></li>
+                                                <li><a href="#">- Dropdown Item</a></li>
+                                                <li><a href="#">- Dropdown Item</a></li>
+                                                <li><a href="#">- Dropdown Item</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="./rent.html">Rent</a></li>
+                                <li><a href="./agent.html">Agents</a></li>
+                                <li><a href="./about.html">About</a></li>
+                                <li><a href="./blog.html">Blog</a></li>
+                            </ul>
+
+                            <!-- Contact btn -->
+                            <div class="contact-btn mt-3 mt-lg-0 ml-3 ml-lg-5">
+                                <a href="#">Contact Us</a>
+                            </div>
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
+</header>
+<!-- **** Header Area End **** -->
