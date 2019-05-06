@@ -142,3 +142,5 @@ REST_FRAMEWORK = {
 
 
 AUTH_USER_MODEL = 'FindBikeFriends_app.User'
+
+LOGIN_URL = '/login/'

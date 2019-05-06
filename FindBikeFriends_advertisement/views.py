@@ -5,18 +5,39 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 from FindBikeFriends_app.models import Company, Advertisement
-from FindBikeFriends_advertisement.forms import CompanyForm, AdvertisementForm, AdvertisementImageForm
+from FindBikeFriends_advertisement.forms import CompanyForm, AdvertisementForm, AdvertisementImageForm, LoginForm
+
+
+def LoginView(request):
+    form = LoginForm()
+    error_messages = ""
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            login_user = authenticate(request, username=username, password=password)
+            if login_user is not None and Advertisement.objects.filter(username=login_user.username).first():
+                login(request, login_user)
+            else:
+                error_messages = "Kullanıcı adı ve Şifre Yanlış"
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    return render(request, 'advertisement/login.html', {'form': form, 'error_messages': error_messages})
+
+
+
+def LogoutView(request):
+    logout(request)
+    return redirect('FindBikeFriends_advertisement:login')
+
 
 @login_required
 def IndexView(request):
-    return render(request, 'advertisement/index.html')
-
-
-@login_required
-def LogoutView(request):
-    logout(request)
-    return redirect('FindBikeFriends_web:homepage')
-
+    context = {
+        "advertisement_count": Advertisement.objects.filter(owner=request.user)
+    }
+    return render(request, 'advertisement/index.html',context)
 
 
 @login_required
@@ -64,13 +85,4 @@ def AdvertisementDetailView(request, pk):
 
 @login_required
 def SettingsCompanyView(request):
-    company = Company.objects.get(id=request.user.id)
-    form = CompanyForm(request.POST or None,request.FILES or None,instance=company)
-    if form.is_valid():
-        form = form.save()
-        return redirect("settings_account")
-    context = {
-        "form": form,
-        "company": company
-    }
-    return render(request, 'advertisement/settings/settings_account.html', context)
+    return render(request, 'advertisement/settings/settings_account.html')

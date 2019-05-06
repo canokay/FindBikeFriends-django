@@ -79,8 +79,8 @@ class CompanyAddress(Model):
 
     class Meta:
         ordering = ('-name',)
-        verbose_name = 'Adres'
-        verbose_name_plural = 'Adresler'
+        verbose_name = 'Şirket Adresi'
+        verbose_name_plural = 'Şirket Adresleri'
 
     def __str__(self):
         return self.name
@@ -126,7 +126,8 @@ class Advertisement(Model):
     approved = BooleanField(verbose_name='Onaylandı')
     owner = ForeignKey('FindBikeFriends_app.Company', related_name='advertisement_owner', verbose_name='Reklamveren Firma', on_delete=models.CASCADE)
     thumbnail = ImageField(verbose_name='Reklam Thumbnail', upload_to='images/advertisement/')
-
+    is_active = BooleanField(default=False, verbose_name='Aktif')
+    
     class Meta:
         verbose_name = 'Reklam'
         verbose_name_plural = 'Reklamlar'
@@ -146,30 +147,42 @@ class AdvertisementImage(Model):
         return self.image.name
 
 
-class Chat(Model):
-    chat_owner = ForeignKey("FindBikeFriends_app.User",null=False, related_name='chat_owner', on_delete=models.CASCADE, verbose_name="Gönderen Kişi")
-    chat_sent_user = ForeignKey("FindBikeFriends_app.User",null=False,related_name='chat_user', on_delete=models.CASCADE, verbose_name="Gönderilen Kişi")
-    created_at = DateTimeField(auto_now_add=True, editable=False, blank=True, null=False, verbose_name="Tarih")
-    first_messsage = CharField(max_length=500, verbose_name="İlk Mesaj")
+class BikeGroup(Model):
+    group_name = CharField(max_length=500, blank=True, null=True, verbose_name="Chat Name")
+    group_name_user = ManyToManyField('FindBikeFriends_app.User', blank=False, verbose_name='Sent User',related_name='sendusers')
 
     class Meta:
-        verbose_name = 'Sohbet'
-        verbose_name_plural = 'Sohbetler'
+        verbose_name = 'Bisiklet Grubu'
+        verbose_name_plural = 'Bisiklet Grupları'
 
     def __str__(self):
-        return self.first_messsage
+        return "{}".format(self.pk)
+
+
+
+class Chat(Model):
+    chat_owner = ForeignKey("FindBikeFriends_app.User",null=False, related_name='chat_owner', on_delete=models.CASCADE, verbose_name="Oluşturan kişi")
+    bike_group = ManyToManyField('FindBikeFriends_app.BikeGroup', blank=False, verbose_name='Bisiklet Grubu',related_name='bikegroup')
+    created_at = DateTimeField(auto_now_add=True, editable=False, verbose_name="Tarih")
+
+    class Meta:
+        verbose_name = 'Chat'
+        verbose_name_plural = 'Chats'
+
+    def __str__(self):
+        return "{}".format(self.pk)
 
 
 
 class Message(Model):
-    chat = ForeignKey("FindBikeFriends_app.Chat",null=False, related_name='source_chat', on_delete=models.CASCADE, verbose_name="Sohbet")
-    sent_user = ForeignKey("FindBikeFriends_app.User",null=False,related_name='source_user', on_delete=models.CASCADE, verbose_name="Gönderen Kişi")
-    chat_message = CharField(max_length=500, verbose_name="Gönderilecek Mesajı")
-    created_at = DateTimeField(auto_now_add=True, editable=False, blank=True, null=False, verbose_name="Tarih")
+    chat = ForeignKey("FindBikeFriends_app.Chat",null=False, related_name='source_chat', on_delete=models.CASCADE, verbose_name="Chat")
+    sent_user = ForeignKey("FindBikeFriends_app.User",null=False,related_name='source_user', on_delete=models.CASCADE, verbose_name="Send User")
+    chat_message = CharField(max_length=500, verbose_name="Message")
+    created_at = DateTimeField(auto_now_add=True, editable=False, blank=True, null=False, verbose_name="Date")
 
     class Meta:
-        verbose_name = 'Sohbet Konuşması'
-        verbose_name_plural = 'Sohbet Konuşmaları'
+        verbose_name = 'Chat Message'
+        verbose_name_plural = 'Chat Messages'
 
     def __str__(self):
         return "{}".format(self.pk)
