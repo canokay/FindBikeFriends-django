@@ -106,5 +106,4 @@ venv.bak/
 
 .idea
 media/
-db.sqlite3
 *.DS_Store
