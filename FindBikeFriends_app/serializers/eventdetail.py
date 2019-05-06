@@ -12,5 +12,6 @@ class EventDetailSerializer(ModelSerializer):
             'name',
             'description',
             'start_date',
-            'type'
+            'type',
+            'guests'
         ]
