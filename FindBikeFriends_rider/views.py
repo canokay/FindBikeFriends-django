@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
+from FindBikeFriends_app.models import User, Followers,  Event, City, CompanyAddress, CompanyFeature, Company, Advertisement, AdvertisementImage
 from FindBikeFriends_rider.forms import  LoginForm
+
 
 
 def LoginView(request):
@@ -33,3 +35,17 @@ def LogoutView(request):
 @login_required
 def IndexView(request):
     return render(request, 'rider/index.html')
+
+
+def EventListView(request):
+    context={
+        "event": Event.objects.all()
+    }
+    return render(request, 'rider/event/event_list.html', context)
+
+
+def EventDetailView(request):
+    context={
+        "event": Event.objects.filter(id=id)
+    }
+    return render(request, 'rider/event/event_detail.html', context)
