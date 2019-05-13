@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
 
-from FindBikeFriends_app.models import User, Followers,EventType, Event, City, CompanyAddress, CompanyFeature, Company, Advertisement, AdvertisementImage
+from FindBikeFriends_app.models import User, Followers,EventType, Event, City, CompanyAddress, CompanyFeature, Company, Advertisement, AdvertisementImage, Contact
 
 
 admin.site.register(User)
@@ -14,6 +14,6 @@ admin.site.register(CompanyFeature)
 admin.site.register(Company)
 admin.site.register(Advertisement)
 admin.site.register(AdvertisementImage)
-
+admin.site.register(Contact)
 
 admin.site.unregister(Group)
