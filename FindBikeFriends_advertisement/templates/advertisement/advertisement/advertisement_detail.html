@@ -20,6 +20,7 @@ Reklam Bitiş Tarihi: {{advertisement.end_date}}
 <hr>
 Reklam Ücreti: {{advertisement.price}}
 <hr>
-Reklam Resimi: <img src ="http://localhost:8000{{advertisement.thumbnail.url}}">
+Reklam Resimi: <img src="/{% if advertisement.thumbnail %}media/{{advertisement.thumbnail}}{% else %}#{% endif %}" alt="">
+
 </div>
 {% endblock content %}
