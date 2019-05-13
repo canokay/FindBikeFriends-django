@@ -1,0 +1,12 @@
+{% extends "rider/base.html" %}
+{% load static %}
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Kaydet" />
+</form>
+
+
+{% endblock content %}

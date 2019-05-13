@@ -4,7 +4,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 
 from FindBikeFriends_app.models import User, Followers,  Event, City, CompanyAddress, CompanyFeature, Company, Advertisement
-from FindBikeFriends_rider.forms import  LoginForm
+from FindBikeFriends_rider.forms import  LoginForm, EventForm
 
 
 
@@ -44,8 +44,20 @@ def EventListView(request):
     return render(request, 'rider/event/event_list.html', context)
 
 
-def EventDetailView(request):
+def EventDetailView(request,id):
     context={
         "event": Event.objects.filter(id=id)
     }
     return render(request, 'rider/event/event_detail.html', context)
+
+
+
+def EventCreateView(request):
+    form = EventForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit=True)
+        return redirect('FindBikeFriends_rider:event_list')
+    context = {
+        "form": form
+    }
+    return render(request, 'rider/event/event_new.html', context)
