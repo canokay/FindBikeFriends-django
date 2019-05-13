@@ -93,7 +93,7 @@ class AdvertisementDetailView(ListAPIView):
 
 
 class EventCreateView(APIView):
-    def post(self, request, format=None):
+    def post(self, request, *args, **kwargs):
         serializer = EventCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
