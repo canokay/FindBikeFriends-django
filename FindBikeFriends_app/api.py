@@ -57,7 +57,30 @@ class AdvertisementListView(ListAPIView):
 
     def get_queryset(self):
         type = self.request.GET.get('type', None)
-        return Advertisement.objects.filter(is_active=True)
+        def convertFloat(val):
+            try:
+                return float(val)
+            except:
+                return None
+
+        def parseDate(val):
+            try:
+                return parse_date(val)
+            except:
+                return None
+
+        start_date = parseDate(self.request.GET.get('start_date', None))
+        today = timezone.now()
+
+        if not start_date:
+            data = Advertisement.objects.filter(start_date__gte=today, is_active=True).order_by('start_date')
+        elif not start_date:
+            data = Advertisement.objects.filter(start_date__gte=today, is_active=True).order_by('start_date')
+        else:
+            data = Advertisement.objects.filter(start_date__day=start_date.day, start_date__month=start_date.month,
+                                        start_date__year=start_date.year, is_active=True)
+
+        return data
 
 
 class AdvertisementDetailView(ListAPIView):
