@@ -18,7 +18,7 @@ def ContactView(request):
     form = ContactForm(request.POST or None)
     if form.is_valid():
         form.save(commit=True)
-        return redirect('GitStudent_web:contact')
+        return redirect('FindBikeFriends_web:contact')
     context = {
         "form": form
     }

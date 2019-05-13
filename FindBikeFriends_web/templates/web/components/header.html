@@ -4,18 +4,18 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">FindBikeFriends</a>
+        <a class="navbar-brand" href="{% url 'FindBikeFriends_web:homepage' %}">FindBikeFriends</a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Anasayfa</a>
+              <a class="nav-link" href="{% url 'FindBikeFriends_web:homepage' %}">Anasayfa</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Hakkında</a>
+              <a class="nav-link" href="{% url 'FindBikeFriends_web:about' %}">Hakkında</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">İletişim</a>
+              <a class="nav-link" href="{% url 'FindBikeFriends_web:contact' %}">İletişim</a>
             </li>
           </ul>
         </div>
