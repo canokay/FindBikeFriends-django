@@ -27,9 +27,9 @@ from FindBikeFriends_app.models import User, Followers,  Event, City, CompanyAdd
 
 from FindBikeFriends_app.serializers.eventlist import EventListSerializer
 from FindBikeFriends_app.serializers.eventdetail import EventDetailSerializer
+from FindBikeFriends_app.serializers.eventcreate import EventCreateSerializer
 from FindBikeFriends_app.serializers.advertisementlist import AdvertisementListSerializer
 from FindBikeFriends_app.serializers.advertisementdetail import AdvertisementDetailSerializer
-
 
 
 
@@ -89,3 +89,13 @@ class AdvertisementDetailView(ListAPIView):
     def get_queryset(self):
         id = self.kwargs['id']
         return Advertisement.objects.filter(id=id)
+
+
+
+class EventCreateView(APIView):
+    def post(self, request, format=None):
+        serializer = EventCreateSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
