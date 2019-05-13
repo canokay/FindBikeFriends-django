@@ -123,7 +123,7 @@ class Advertisement(Model):
     start_date = DateTimeField(verbose_name='Başlangıç Tarihi')
     end_date = DateTimeField(verbose_name='Bitiş Tarihi')
     price = FloatField(verbose_name='Reklam Ücret', blank=True, null=True)
-    owner = ForeignKey('FindBikeFriends_app.Company', related_name='advertisement_owner', verbose_name='Reklamveren Firma', on_delete=models.CASCADE)
+    owner = ForeignKey('FindBikeFriends_app.User', related_name='advertisement_owner', verbose_name='Reklamveren Firma', on_delete=models.CASCADE)
     thumbnail = ImageField(verbose_name='Reklam Thumbnail', upload_to='images/advertisement/')
     is_active = BooleanField(default=False, verbose_name='Aktif')
     
