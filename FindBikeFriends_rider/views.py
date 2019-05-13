@@ -46,7 +46,7 @@ def EventListView(request):
 
 def EventDetailView(request,id):
     context={
-        "event": Event.objects.filter(id=id)
+        "event": Event.objects.get(id=id)
     }
     return render(request, 'rider/event/event_detail.html', context)
 

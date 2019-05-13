@@ -11,9 +11,9 @@ urlpatterns = [
     url(r'^$', IndexView, name='dashboard'),
     url(r'^login/$', LoginView, name='login'),
     url(r'^logout/$', LogoutView, name='logout'),
-    url(r'^event/$', EventListView, name='event_list'),
-    url(r'^event-ekle/$', EventCreateView, name='event_new'),
-    url(r'^event/(?P<id>\d+)/$', EventDetailView, name='event_detail'),
+    url(r'^etkinlik/$', EventListView, name='event_list'),
+    url(r'^etkinlik-ekle/$', EventCreateView, name='event_new'),
+    url(r'^etkinlik/(?P<id>\d+)/$', EventDetailView, name='event_detail'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

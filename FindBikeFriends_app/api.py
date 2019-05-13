@@ -67,15 +67,7 @@ class AdvertisementListView(ListAPIView):
         start_date = parseDate(self.request.GET.get('start_date', None))
         today = timezone.now()
 
-        if not start_date:
-            data = Advertisement.objects.filter(start_date__gte=today, is_active=True).order_by('start_date')
-        elif not start_date:
-            data = Advertisement.objects.filter(start_date__gte=today, is_active=True).order_by('start_date')
-        else:
-            data = Advertisement.objects.filter(start_date__day=start_date.day, start_date__month=start_date.month,
-                                        start_date__year=start_date.year, is_active=True)
-
-        return data
+        return Advertisement.objects.filter(start_date__gte=today, is_active=True).order_by('start_date')
 
 
 class AdvertisementDetailView(ListAPIView):

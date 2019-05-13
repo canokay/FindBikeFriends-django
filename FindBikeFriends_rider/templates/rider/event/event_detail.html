@@ -3,5 +3,10 @@
 {% block headerTitle %}Etkinlik Detayı{% endblock headerTitle %} 
 {% block content %}
 
+<div class="col-md-12 col-lg-12 padding-zero">
 
+Etkinlik Adı: {{event.name}} <br>
+Etkinlik Açıklaması: {{event.description}} <br>
+Etkinlik Başlangıç Tarihi: {{event.start_date}} <br>
+</div>
 {% endblock content %}
