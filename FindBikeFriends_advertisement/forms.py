@@ -1,7 +1,9 @@
 from django import forms
-from django.forms import Form, ModelForm, CharField, TextInput, PasswordInput, ChoiceField, Select, NumberInput,SelectMultiple,DateTimeInput
+from django.forms import Form, ModelForm, CharField, TextInput, PasswordInput, ChoiceField, Select, NumberInput,SelectMultiple,DateInput
 from FindBikeFriends_app.models import Company,Advertisement,AdvertisementImage
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class LoginForm(Form):
     username = CharField(widget=TextInput(attrs={'class': 'form-control','placeholder':'Kullanıcı Adı','style':'margin-bottom:20px;'}))
@@ -19,8 +21,8 @@ class AdvertisementForm(ModelForm):
         widgets = {
             'name': TextInput(attrs={'class': 'col-sm-7'}),
             'description': TextInput(attrs={'class': 'form-control'}),
-            'start_date': DateTimeInput(attrs={'class': 'form-control'}),
-            'end_date': TextInput(attrs={'class': 'form-control'}),
+            'start_date': DateInput(attrs={'class': 'form-control'}),
+            'end_date': DateInput(attrs={'class': 'form-control'}),
             'price': NumberInput(attrs={'class': 'form-control'}),
         }
 

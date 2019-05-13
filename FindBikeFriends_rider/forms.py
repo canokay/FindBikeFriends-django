@@ -1,6 +1,8 @@
 from django import forms
 from django.forms import Form, CharField, TextInput, PasswordInput, ValidationError
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 class LoginForm(Form):
     username = CharField(label="Username", widget=TextInput(attrs={'class': 'form-control'}))
