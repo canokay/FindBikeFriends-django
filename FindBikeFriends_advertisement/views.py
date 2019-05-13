@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count, Sum
 
 from FindBikeFriends_app.models import Company, Advertisement
 from FindBikeFriends_advertisement.forms import CompanyForm, AdvertisementForm, AdvertisementImageForm, LoginForm
@@ -35,7 +36,7 @@ def LogoutView(request):
 @login_required
 def IndexView(request):
     context = {
-        "advertisement_count": Advertisement.objects.filter(owner=request.user)
+        "advertisement_count": Advertisement.objects.filter(owner=request.user).count()
     }
     return render(request, 'advertisement/index.html',context)
 
