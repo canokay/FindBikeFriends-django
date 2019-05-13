@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login, authenticate, logout
-from FindBikeFriends_web.forms import LoginForm
+from FindBikeFriends_web.forms import LoginForm, ContactForm
 from FindBikeFriends_app.models import Event
 
 def IndexView(request):
@@ -9,6 +9,20 @@ def IndexView(request):
     }
     return render(request, 'web/index.html',context)
 
+
+def AboutView(request):
+    return render(request, 'web/about.html')
+
+
+def ContactView(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save(commit=True)
+        return redirect('GitStudent_web:contact')
+    context = {
+        "form": form
+    }
+    return render(request, 'web/contact.html',context)
 
 
 def LoginView(request):

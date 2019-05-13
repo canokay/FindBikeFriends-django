@@ -1,6 +1,6 @@
 from django.db import models
 
-from django.db.models import Model,ForeignKey,CharField,DateTimeField,FloatField,TextField,ManyToManyField,DecimalField,IntegerField,BooleanField,ImageField
+from django.db.models import Model,ForeignKey,CharField,DateTimeField,FloatField,TextField,ManyToManyField,DecimalField,IntegerField,BooleanField,ImageField, EmailField
 from django.contrib.auth.models import AbstractUser
 
 
@@ -184,3 +184,14 @@ class Message(Model):
 
     def __str__(self):
         return "{}".format(self.pk)
+
+
+class Contact(Model):
+    name = CharField(max_length=100, null=True, blank=True, verbose_name='İsim')
+    email =  EmailField()
+    title =  CharField(max_length=100, null=True, blank=True, verbose_name='Başlık')
+    message =  TextField(null=True, blank=True, verbose_name='Mesaj')
+
+    class Meta:
+        verbose_name = 'İletişim'
+        verbose_name_plural = 'İletişimler'
