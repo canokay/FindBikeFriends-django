@@ -1,4 +1,7 @@
 from django.conf.urls import url
+from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
 
 from FindBikeFriends_advertisement.views import IndexView,LoginView,LogoutView,CreateAdvertisementView,AdvertisementListView,AdvertisementDetailView,SettingsCompanyView
 
@@ -13,3 +16,4 @@ urlpatterns = [
     url(r'^reklamlar/(?P<id>\d+)/$', AdvertisementDetailView, name='advertisement_detail'),
     url(r'^ayarlar/$', SettingsCompanyView, name='settings_company'),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
