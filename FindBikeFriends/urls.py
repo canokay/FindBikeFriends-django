@@ -11,4 +11,4 @@ urlpatterns = [
     url(r'^bisikletli/', include("FindBikeFriends_rider.urls")),
     url(r'^reklamveren/', include("FindBikeFriends_advertisement.urls")),
     url(r'^api/', include("FindBikeFriends_app.urls")),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

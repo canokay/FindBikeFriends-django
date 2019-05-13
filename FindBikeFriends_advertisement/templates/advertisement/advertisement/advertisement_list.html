@@ -12,6 +12,7 @@
             <th scope="col">Reklam</th>
             <th scope="col">Başlangıç Tarihi</th>
             <th scope="col">Bitiş Tarihi</th>
+            <th scope="col">Durumu</th>
             <th scope="col">Fiyat</th>
         </tr>
     </thead>
@@ -20,9 +21,16 @@
         {% for advertisements in advertisement %}
         <tr>
             <th scope="row">{{advertisements.id}}</th>
-            <td><a href="/blog/{{blogs.slug}}" class="btn btn-warning">{{advertisements.name}}</a></td>
+            <td><a href="reklamveren/reklamlar/{{advertisements.id}}" class="btn btn-warning">{{advertisements.name}}</a></td>
             <td>{{advertisements.start_date}}</td>
             <td>{{advertisements.end_date}}</td>
+            <td>
+                {% if advertisements.is_active == True %}
+                    Yayında
+                {% else %}
+                    İncelemede
+                {% endif %}
+            </td>
             <td>{{advertisements.price}}</td>
         </tr>
         {% endfor %}

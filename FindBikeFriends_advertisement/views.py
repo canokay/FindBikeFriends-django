@@ -67,18 +67,18 @@ def AdvertisementListView(request):
 
 
 @login_required
-def AdvertisementDetailView(request, pk):
+def AdvertisementDetailView(request, id):
     try:
-        advertisement = Advertisement.objects.get(pk=pk)
+        advertisement = Advertisement.objects.get(id=id)
     except Advertisement.DoesNotExist:
         return redirect('FindBikeFriends_advertisement:dashboard')
-    if advertisement.owner.pk != request.user.pk:
+    if advertisement.owner.id != request.user.id:
         return redirect('FindBikeFriends_advertisement:dashboard')
-    advertisement = Advertisement.objects.get(pk=pk)
+    advertisement = Advertisement.objects.get(id=id)
     context = {
-        "advertisement": Advertisement.objects.get(pk=pk)
+        "advertisement": Advertisement.objects.get(id=id)
     }
-    return render(request, 'restaurant/advertisement/advertisement_detail.html', context)
+    return render(request, 'advertisement/advertisement/advertisement_detail.html', context)
 
 
 

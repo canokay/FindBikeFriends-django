@@ -10,6 +10,6 @@ urlpatterns = [
     url(r'^logout/$', LogoutView, name='logout'),
     url(r'^yeni-reklam/$', CreateAdvertisementView, name='new_advertisement'),
     url(r'^reklamlar/$', AdvertisementListView, name='advertisement_list'),
-    url(r'^reklamlar/(?P<pk>\d+)/$', AdvertisementDetailView, name='advertisement_detail'),
+    url(r'^reklamlar/(?P<id>\d+)/$', AdvertisementDetailView, name='advertisement_detail'),
     url(r'^ayarlar/$', SettingsCompanyView, name='settings_company'),
 ]

@@ -6,23 +6,20 @@
 
 {% block content %}
 
-{{advertisement.id}}
-<hr>
-{{advertisement.name}}
-<hr>
-{{advertisement.created}}
-<hr>
-{{advertisement.id}}
-<hr>
-{{advertisement.description}}
-<hr>
-{{advertisement.start_date}} <br>
+<div class="col-md-12 col-lg-12 padding-zero">
 
-{{advertisement.end_date}}
+Reklam Adı: {{advertisement.name}} <br>
 <hr>
-{{advertisement.price}}
+Reklam Oluşturma Tarihi: {{advertisement.created}}
 <hr>
-{{advertisement.thumbnail}}
+Reklam Açıklaması: {{advertisement.description}}
 <hr>
+Reklam Başlangıç Tarihi: {{advertisement.start_date}} <br>
 
+Reklam Bitiş Tarihi: {{advertisement.end_date}}
+<hr>
+Reklam Ücreti: {{advertisement.price}}
+<hr>
+Reklam Resimi: <img src ="http://localhost:8000{{advertisement.thumbnail.url}}">
+</div>
 {% endblock content %}
