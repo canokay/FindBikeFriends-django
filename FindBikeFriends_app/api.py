@@ -57,7 +57,7 @@ class AdvertisementListView(ListAPIView):
 
     def get_queryset(self):
         type = self.request.GET.get('type', None)
-        return Advertisement.objects.all()
+        return Advertisement.objects.filter(is_active=True)
 
 
 class AdvertisementDetailView(ListAPIView):
