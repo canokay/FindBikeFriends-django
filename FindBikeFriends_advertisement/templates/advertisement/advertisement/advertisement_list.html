@@ -21,7 +21,7 @@
         {% for advertisements in advertisement %}
         <tr>
             <th scope="row">{{advertisements.id}}</th>
-            <td><a href="reklamveren/reklamlar/{{advertisements.id}}" class="btn btn-warning">{{advertisements.name}}</a></td>
+            <td><a href="{{advertisements.id}}" class="btn btn-warning">{{advertisements.name}}</a></td>
             <td>{{advertisements.start_date}}</td>
             <td>{{advertisements.end_date}}</td>
             <td>
