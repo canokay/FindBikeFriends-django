@@ -123,7 +123,6 @@ class Advertisement(Model):
     start_date = DateTimeField(verbose_name='Başlangıç Tarihi')
     end_date = DateTimeField(verbose_name='Bitiş Tarihi')
     price = FloatField(verbose_name='Reklam Ücret', blank=True, null=True)
-    approved = BooleanField(verbose_name='Onaylandı')
     owner = ForeignKey('FindBikeFriends_app.Company', related_name='advertisement_owner', verbose_name='Reklamveren Firma', on_delete=models.CASCADE)
     thumbnail = ImageField(verbose_name='Reklam Thumbnail', upload_to='images/advertisement/')
     is_active = BooleanField(default=False, verbose_name='Aktif')
@@ -131,8 +130,7 @@ class Advertisement(Model):
     class Meta:
         verbose_name = 'Reklam'
         verbose_name_plural = 'Reklamlar'
-
-
+        
 class AdvertisementImage(Model):
     advertisement = ForeignKey('FindBikeFriends_app.Advertisement', verbose_name='Reklamveren', null=True, blank=True, on_delete=models.CASCADE)
     image = ImageField(verbose_name='Reklam Resimi', upload_to='images/advertisement/')
@@ -149,7 +147,7 @@ class AdvertisementImage(Model):
 
 class BikeGroup(Model):
     group_name = CharField(max_length=500, blank=True, null=True, verbose_name="Chat Name")
-    group_name_user = ManyToManyField('FindBikeFriends_app.User', blank=False, verbose_name='Sent User',related_name='sendusers')
+    user = ManyToManyField('FindBikeFriends_app.User', blank=False, verbose_name='Sent User',related_name='sendusers')
 
     class Meta:
         verbose_name = 'Bisiklet Grubu'

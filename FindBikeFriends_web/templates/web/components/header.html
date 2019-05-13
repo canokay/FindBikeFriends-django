@@ -1,68 +1,33 @@
 {% load static %}
-<!-- **** Header Area Start **** -->
-<header class="header-area">
 
-    <!-- Main Header Start -->
-    <div class="main-header-area animated">
-        <div class="classy-nav-container breakpoint-off">
-            <div class="container">
-                <!-- Classy Menu -->
-                <nav class="classy-navbar justify-content-between" id="rehomesNav">
-
-                    <!-- Logo -->
-                    <a class="nav-brand" href="./index.html"><img src="{% static 'web/img/core-img/logo.png' %}" alt=""></a>
-
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-
-                    <!-- Menu -->
-                    <div class="classy-menu">
-                        <!-- Menu Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                        </div>
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul id="nav">
-                                <li class="active"><a href="./index.html">Home</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li class="active"><a href="./index.html">- Home</a></li>
-                                        <li><a href="./about.html">- About</a></li>
-                                        <li><a href="./agent.html">- Agent</a></li>
-                                        <li><a href="./rent.html">- Rent</a></li>
-                                        <li><a href="./properties-details.html">- Property Details</a></li>
-                                        <li><a href="./blog.html">- Blog</a></li>
-                                        <li><a href="./single-blog.html">- Single Blog</a></li>
-                                        <li><a href="./contact.html">- Contact</a></li>
-                                        <li><a href="#">- Dropdown</a>
-                                            <ul class="dropdown">
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                                <li><a href="#">- Dropdown Item</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a href="./rent.html">Rent</a></li>
-                                <li><a href="./agent.html">Agents</a></li>
-                                <li><a href="./about.html">About</a></li>
-                                <li><a href="./blog.html">Blog</a></li>
-                            </ul>
-
-                            <!-- Contact btn -->
-                            <div class="contact-btn mt-3 mt-lg-0 ml-3 ml-lg-5">
-                                <a href="#">Contact Us</a>
-                            </div>
-                        </div>
-                        <!-- Nav End -->
-                    </div>
-                </nav>
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">About</h4>
+              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
             </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                <li><a href="#" class="text-white">Like on Facebook</a></li>
+                <li><a href="#" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </div>
-</header>
-<!-- **** Header Area End **** -->
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>Album</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
