@@ -1,0 +1,38 @@
+{% load static %}
+
+{% with request.resolver_match.url_name as url_name %}
+<nav id="sidebar">
+    <div class="sidebar-header">
+        <h3>Şirket Paneli </h3>
+        <p style="color:#ffffff">{{request.user.username}} Kullanıcısı</p>
+    </div>
+    <ul class="list-unstyled components">
+        <li class="{% if url_name == 'dashboard' %} active{% endif %}">
+            <a href="{% url 'FindBikeFriends_advertisement:dashboard' %}">Başlangıç</a>
+        </li>
+        <li>
+            <a href="#meatSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Reklamlar</a>
+            <ul class="collapse list-unstyled {% if url_name == 'new_advertisement' or url_name == 'advertisement_list' %} show{% endif %}  " id="meatSubmenu">
+                <li class="{% if url_name == 'new_advertisement' %} active{% endif %}">
+                    <a href="{% url 'FindBikeFriends_advertisement:new_advertisement' %}">Reklam Ekle</a>
+                </li>
+                <li class="{% if url_name == 'advertisement_list' %} active{% endif %}">
+                    <a href="{% url 'FindBikeFriends_advertisement:advertisement_list' %}">Reklam Listele</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ayarlar</a>
+            <ul class="collapse list-unstyled {% if url_name == 'settings_company' %} show{% endif %} " id="settingsSubmenu">
+                <li class="{% if url_name == 'settings_company' %} active{% endif %}">
+                    <a href="{% url 'FindBikeFriends_advertisement:settings_company' %}">Şirket Ayarları</a>
+                </li>
+            </ul>
+      </li>
+      <li>
+          <a href="{% url 'FindBikeFriends_advertisement:logout' %}">Çıkış Yap</a>
+      </li>
+    </ul>
+</nav>
+
+{% endwith %}
