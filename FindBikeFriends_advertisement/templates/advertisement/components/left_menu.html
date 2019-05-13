@@ -21,14 +21,6 @@
                 </li>
             </ul>
         </li>
-        <li>
-            <a href="#settingsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ayarlar</a>
-            <ul class="collapse list-unstyled {% if url_name == 'settings_company' %} show{% endif %} " id="settingsSubmenu">
-                <li class="{% if url_name == 'settings_company' %} active{% endif %}">
-                    <a href="{% url 'FindBikeFriends_advertisement:settings_company' %}">Şirket Ayarları</a>
-                </li>
-            </ul>
-      </li>
       <li>
           <a href="{% url 'FindBikeFriends_advertisement:logout' %}">Çıkış Yap</a>
       </li>
