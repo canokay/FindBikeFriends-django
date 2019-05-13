@@ -57,11 +57,6 @@ class AdvertisementListView(ListAPIView):
 
     def get_queryset(self):
         type = self.request.GET.get('type', None)
-        def convertFloat(val):
-            try:
-                return float(val)
-            except:
-                return None
 
         def parseDate(val):
             try:
