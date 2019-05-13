@@ -1,10 +1,13 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import login, authenticate, logout
 from FindBikeFriends_web.forms import LoginForm
-
+from FindBikeFriends_app.models import Event
 
 def IndexView(request):
-    return render(request, 'web/index.html')
+    context = {
+        "event": Event.objects.all()
+    }
+    return render(request, 'web/index.html',context)
 
 
 
