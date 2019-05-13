@@ -109,7 +109,7 @@ span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #ffcc00;
 }
 
 #sidebar .sidebar-header strong {
@@ -184,7 +184,7 @@ a.download {
 
 a.article,
 a.article:hover {
-    background: #6d7fcc !important;
+    background: #ffcc00 !important;
     color: #fff !important;
 }
 
