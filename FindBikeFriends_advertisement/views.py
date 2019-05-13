@@ -46,9 +46,9 @@ def CreateAdvertisementView(request):
     form = AdvertisementForm(request.POST or None, request.FILES)
     if form.is_valid():
         candidate_advertisement = form.save(commit=False)
-        candidate_advertisement.owner = request.user.company
+        candidate_advertisement.owner = request.user
         candidate_advertisement.save()
-        return redirect("new_advertisement")
+        return redirect("FindBikeFriends_advertisement:advertisement_list")
     context = {
         "form": form
     }
