@@ -51,3 +51,12 @@ def LoginView(request):
 
 def RegisterView(request):
     return render(request, 'web/register.html')
+
+
+def EventDetailView(request,id):
+    context = {
+        "event": Event.objects.filter(id=id)
+    }
+    return render(request, 'web/event_detail.html',context)
+    
+    
