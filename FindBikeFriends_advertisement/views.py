@@ -81,9 +81,3 @@ def AdvertisementDetailView(request, id):
     return render(request, 'advertisement/advertisement/advertisement_detail.html', context)
 
 
-
-
-
-@login_required
-def SettingsCompanyView(request):
-    return render(request, 'advertisement/settings/settings_account.html')
