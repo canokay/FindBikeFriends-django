@@ -105,6 +105,6 @@ venv.bak/
 .mypy_cache/
 
 .idea
-media/
+#media/
 *.DS_Store
 *.pyc
