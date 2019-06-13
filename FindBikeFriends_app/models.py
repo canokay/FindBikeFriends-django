@@ -45,7 +45,7 @@ class Event(Model):
     lat = DecimalField(max_digits=9, decimal_places=6, null=True, blank=True, verbose_name='Etkinlik X Koordinatı')
     long = DecimalField(max_digits=9, decimal_places=6, null=True, blank=True, verbose_name='Etkinlik Y Koordinatı')
     guests = ManyToManyField('FindBikeFriends_app.User', blank=True, verbose_name='Gelen Kullanıcılar')
-    thumbnail = ImageField(verbose_name='Reklam Thumbnail', upload_to='images/event/')
+    thumbnail = ImageField(verbose_name='Etkinlik Thumbnail', upload_to='images/event/')
     class Meta:
         ordering = ('-id',)
         verbose_name = 'Etkinlik'
@@ -130,7 +130,10 @@ class Advertisement(Model):
     class Meta:
         verbose_name = 'Reklam'
         verbose_name_plural = 'Reklamlar'
-        
+
+    def __str__(self):
+        return self.name
+
 class AdvertisementImage(Model):
     advertisement = ForeignKey('FindBikeFriends_app.Advertisement', verbose_name='Reklamveren', null=True, blank=True, on_delete=models.CASCADE)
     image = ImageField(verbose_name='Reklam Resimi', upload_to='images/advertisement/')

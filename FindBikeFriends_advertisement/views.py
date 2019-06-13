@@ -5,7 +5,7 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count, Sum
 
-from FindBikeFriends_app.models import Company, Advertisement
+from FindBikeFriends_app.models import Company, Advertisement, User
 from FindBikeFriends_advertisement.forms import CompanyForm, AdvertisementForm, AdvertisementImageForm, LoginForm
 
 
@@ -18,12 +18,12 @@ def LoginView(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             login_user = authenticate(request, username=username, password=password)
-            if login_user is not None and Advertisement.objects.filter(username=login_user.username).first():
+            if login_user is not None and User.objects.filter(username=login_user.username).first():
                 login(request, login_user)
             else:
                 error_messages = "Kullanıcı adı ve Şifre Yanlış"
     if request.user.is_authenticated:
-        return redirect('dashboard')
+        return redirect('/reklamveren')
     return render(request, 'advertisement/login.html', {'form': form, 'error_messages': error_messages})
 
 
