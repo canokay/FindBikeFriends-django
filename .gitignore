@@ -107,3 +107,4 @@ venv.bak/
 .idea
 media/
 *.DS_Store
+*.pyc
